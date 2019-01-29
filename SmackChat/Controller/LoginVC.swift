@@ -21,4 +21,8 @@ class LoginVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func register(_ sender: Any) {
+        performSegue(withIdentifier: REGISTER_SEGUE, sender: nil)
+    }
+    
 }

@@ -9,6 +9,9 @@
 import UIKit
 
 class ChannelVC: UIViewController {
+    
+    //create unwind segue
+    @IBAction func unwindToChannelVC(segue: UIStoryboardSegue){}
 
     override func viewDidLoad() {
         super.viewDidLoad()
