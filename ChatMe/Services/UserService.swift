@@ -24,4 +24,8 @@ class UserService {
         self.name = name
     }
     
+    func updateAvatar(name: String) {
+        self.avatarName = name
+    }
+    
 }

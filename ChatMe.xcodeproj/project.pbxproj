@@ -22,7 +22,10 @@
 		29315C45220030250046487E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29315C44220030250046487E /* UserService.swift */; };
 		293D5F4521FE8A1300390D0A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293D5F4421FE8A1300390D0A /* AuthService.swift */; };
 		2944097521FC3C7B00B6F264 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2944097421FC3C7B00B6F264 /* RegisterVC.swift */; };
+		294876FD220123D80036B4BC /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294876FC220123D80036B4BC /* AvatarPickerVC.swift */; };
+		294876FF220126370036B4BC /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294876FE220126370036B4BC /* AvatarCell.swift */; };
 		29D1FA6121F8AD8B00017247 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D1FA6021F8AD8B00017247 /* SWRevealViewController.m */; };
+		29E833552202710E00492D87 /* RoundedUserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E833542202710E00492D87 /* RoundedUserImage.swift */; };
 		53740AE1F3C55F2C71F0E75C /* Pods_SmackChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794A6AF37642A558B7CB573E /* Pods_SmackChatTests.framework */; };
 		C0E539193F08DB206E3FCFAB /* Pods_SmackChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6AD5392F2DA523A76AC4151 /* Pods_SmackChat.framework */; };
 /* End PBXBuildFile section */
@@ -41,7 +44,7 @@
 		0EFCDA09F753A6EC852FCCF4 /* Pods-SmackChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmackChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmackChatTests/Pods-SmackChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		15D791E6518C0BA6BE2334B7 /* Pods-SmackChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmackChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmackChat/Pods-SmackChat.debug.xcconfig"; sourceTree = "<group>"; };
 		1862AE54803830F14C72B174 /* Pods-SmackChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmackChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmackChatTests/Pods-SmackChatTests.debug.xcconfig"; sourceTree = "<group>"; };
-		29010E9721F7390200030FC1 /* SmackChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmackChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29010E9721F7390200030FC1 /* ChatMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29010E9A21F7390200030FC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29010E9C21F7390200030FC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		29010E9F21F7390200030FC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,7 +52,7 @@
 		29010EA421F7390400030FC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29010EA721F7390400030FC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29010EA921F7390400030FC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		29010EAE21F7390400030FC1 /* SmackChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmackChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		29010EAE21F7390400030FC1 /* ChatMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29010EB221F7390400030FC1 /* SmackChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmackChatTests.swift; sourceTree = "<group>"; };
 		29010EB421F7390400030FC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2910179521F92D8D0053D2D5 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
@@ -60,9 +63,12 @@
 		29315C44220030250046487E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		293D5F4421FE8A1300390D0A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2944097421FC3C7B00B6F264 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		294876FC220123D80036B4BC /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
+		294876FE220126370036B4BC /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		29D1FA5E21F8AD8A00017247 /* SmackChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmackChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		29D1FA5F21F8AD8B00017247 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		29D1FA6021F8AD8B00017247 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		29E833542202710E00492D87 /* RoundedUserImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUserImage.swift; sourceTree = "<group>"; };
 		72D17788E7746B2CF3C01A59 /* Pods-SmackChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmackChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmackChat/Pods-SmackChat.release.xcconfig"; sourceTree = "<group>"; };
 		794A6AF37642A558B7CB573E /* Pods_SmackChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmackChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6AD5392F2DA523A76AC4151 /* Pods_SmackChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmackChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,8 +108,8 @@
 		29010E8E21F7390200030FC1 = {
 			isa = PBXGroup;
 			children = (
-				29010E9921F7390200030FC1 /* SmackChat */,
-				29010EB121F7390400030FC1 /* SmackChatTests */,
+				29010E9921F7390200030FC1 /* ChatMe */,
+				29010EB121F7390400030FC1 /* ChatMeTests */,
 				29010E9821F7390200030FC1 /* Products */,
 				22DE3AF47F85565CA6B3A810 /* Pods */,
 				9B4BF1798EE8F6CE199347B1 /* Frameworks */,
@@ -113,13 +119,13 @@
 		29010E9821F7390200030FC1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				29010E9721F7390200030FC1 /* SmackChat.app */,
-				29010EAE21F7390400030FC1 /* SmackChatTests.xctest */,
+				29010E9721F7390200030FC1 /* ChatMe.app */,
+				29010EAE21F7390400030FC1 /* ChatMeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29010E9921F7390200030FC1 /* SmackChat */ = {
+		29010E9921F7390200030FC1 /* ChatMe */ = {
 			isa = PBXGroup;
 			children = (
 				293D5F4321FE89FF00390D0A /* Services */,
@@ -136,16 +142,16 @@
 				29010EA921F7390400030FC1 /* Info.plist */,
 				29010EA121F7390200030FC1 /* SmackChat.xcdatamodeld */,
 			);
-			path = SmackChat;
+			path = ChatMe;
 			sourceTree = "<group>";
 		};
-		29010EB121F7390400030FC1 /* SmackChatTests */ = {
+		29010EB121F7390400030FC1 /* ChatMeTests */ = {
 			isa = PBXGroup;
 			children = (
 				29010EB221F7390400030FC1 /* SmackChatTests.swift */,
 				29010EB421F7390400030FC1 /* Info.plist */,
 			);
-			path = SmackChatTests;
+			path = ChatMeTests;
 			sourceTree = "<group>";
 		};
 		2910179221F92D630053D2D5 /* Controller */ = {
@@ -155,6 +161,7 @@
 				2910179721F92DA10053D2D5 /* ChannelVC.swift */,
 				291B0A7C21FABB89006F778E /* LoginVC.swift */,
 				2944097421FC3C7B00B6F264 /* RegisterVC.swift */,
+				294876FC220123D80036B4BC /* AvatarPickerVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -163,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				29315C4221FFDDFB0046487E /* RoundedButton.swift */,
+				294876FE220126370036B4BC /* AvatarCell.swift */,
+				29E833542202710E00492D87 /* RoundedUserImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,9 +222,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		29010E9621F7390200030FC1 /* SmackChat */ = {
+		29010E9621F7390200030FC1 /* ChatMe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29010EB721F7390400030FC1 /* Build configuration list for PBXNativeTarget "SmackChat" */;
+			buildConfigurationList = 29010EB721F7390400030FC1 /* Build configuration list for PBXNativeTarget "ChatMe" */;
 			buildPhases = (
 				468BABD2E4648246A24C723F /* [CP] Check Pods Manifest.lock */,
 				29010E9321F7390200030FC1 /* Sources */,
@@ -227,14 +236,14 @@
 			);
 			dependencies = (
 			);
-			name = SmackChat;
+			name = ChatMe;
 			productName = SmackChat;
-			productReference = 29010E9721F7390200030FC1 /* SmackChat.app */;
+			productReference = 29010E9721F7390200030FC1 /* ChatMe.app */;
 			productType = "com.apple.product-type.application";
 		};
-		29010EAD21F7390400030FC1 /* SmackChatTests */ = {
+		29010EAD21F7390400030FC1 /* ChatMeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29010EBA21F7390400030FC1 /* Build configuration list for PBXNativeTarget "SmackChatTests" */;
+			buildConfigurationList = 29010EBA21F7390400030FC1 /* Build configuration list for PBXNativeTarget "ChatMeTests" */;
 			buildPhases = (
 				A4182D4082F173C02B320656 /* [CP] Check Pods Manifest.lock */,
 				29010EAA21F7390400030FC1 /* Sources */,
@@ -246,9 +255,9 @@
 			dependencies = (
 				29010EB021F7390400030FC1 /* PBXTargetDependency */,
 			);
-			name = SmackChatTests;
+			name = ChatMeTests;
 			productName = SmackChatTests;
-			productReference = 29010EAE21F7390400030FC1 /* SmackChatTests.xctest */;
+			productReference = 29010EAE21F7390400030FC1 /* ChatMeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -271,7 +280,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 29010E9221F7390200030FC1 /* Build configuration list for PBXProject "SmackChat" */;
+			buildConfigurationList = 29010E9221F7390200030FC1 /* Build configuration list for PBXProject "ChatMe" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -284,8 +293,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				29010E9621F7390200030FC1 /* SmackChat */,
-				29010EAD21F7390400030FC1 /* SmackChatTests */,
+				29010E9621F7390200030FC1 /* ChatMe */,
+				29010EAD21F7390400030FC1 /* ChatMeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -392,9 +401,11 @@
 			files = (
 				291B0A7B21FAB785006F778E /* Constant.swift in Sources */,
 				29010EA321F7390200030FC1 /* SmackChat.xcdatamodeld in Sources */,
+				294876FF220126370036B4BC /* AvatarCell.swift in Sources */,
 				291B0A7D21FABB89006F778E /* LoginVC.swift in Sources */,
 				29010E9D21F7390200030FC1 /* ViewController.swift in Sources */,
 				29010E9B21F7390200030FC1 /* AppDelegate.swift in Sources */,
+				29E833552202710E00492D87 /* RoundedUserImage.swift in Sources */,
 				29D1FA6121F8AD8B00017247 /* SWRevealViewController.m in Sources */,
 				29315C4321FFDDFB0046487E /* RoundedButton.swift in Sources */,
 				2944097521FC3C7B00B6F264 /* RegisterVC.swift in Sources */,
@@ -402,6 +413,7 @@
 				293D5F4521FE8A1300390D0A /* AuthService.swift in Sources */,
 				2910179821F92DA10053D2D5 /* ChannelVC.swift in Sources */,
 				2910179621F92D8D0053D2D5 /* ChatVC.swift in Sources */,
+				294876FD220123D80036B4BC /* AvatarPickerVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +430,7 @@
 /* Begin PBXTargetDependency section */
 		29010EB021F7390400030FC1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 29010E9621F7390200030FC1 /* SmackChat */;
+			target = 29010E9621F7390200030FC1 /* ChatMe */;
 			targetProxy = 29010EAF21F7390400030FC1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -617,7 +629,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmackChat.app/SmackChat";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChatMe.app/ChatMe";
 			};
 			name = Debug;
 		};
@@ -638,14 +650,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmackChat.app/SmackChat";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChatMe.app/ChatMe";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		29010E9221F7390200030FC1 /* Build configuration list for PBXProject "SmackChat" */ = {
+		29010E9221F7390200030FC1 /* Build configuration list for PBXProject "ChatMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29010EB521F7390400030FC1 /* Debug */,
@@ -654,7 +666,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29010EB721F7390400030FC1 /* Build configuration list for PBXNativeTarget "SmackChat" */ = {
+		29010EB721F7390400030FC1 /* Build configuration list for PBXNativeTarget "ChatMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29010EB821F7390400030FC1 /* Debug */,
@@ -663,7 +675,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29010EBA21F7390400030FC1 /* Build configuration list for PBXNativeTarget "SmackChatTests" */ = {
+		29010EBA21F7390400030FC1 /* Build configuration list for PBXNativeTarget "ChatMeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29010EBB21F7390400030FC1 /* Debug */,

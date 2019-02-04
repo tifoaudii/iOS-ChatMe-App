@@ -22,7 +22,10 @@ let CREATE_USER_URL = "\(BASE_URL)user/add"
 let LOGIN_SEGUE = "login_segue"
 let REGISTER_SEGUE = "register_segue"
 let UNWIND_CHANNELVC = "unwind_channelvc"
+let AVATAR_PICKER_SEGUE = "avatarpicker_segue"
 
+//NOTIFICATION
+let USER_DATA_CHANGED = Notification.Name("user_data_changed")
 //Auth Services
 let USER_TOKEN = "user_token"
 let USER_EMAIL = "user_email"
@@ -32,3 +35,12 @@ let LOGGEDIN_KEY = "loggedIn_key"
 let HEADER = [
     "Content-Type": "application/json; charset=utf-8"
 ]
+
+//avatar type
+enum AvatarType {
+    case dark
+    case light
+}
+
+//cell identifier
+let AVATAR_CELL = "avatar_cell"

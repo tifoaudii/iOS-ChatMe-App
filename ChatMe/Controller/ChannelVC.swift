@@ -10,6 +10,10 @@ import UIKit
 
 class ChannelVC: UIViewController {
     
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userName: UIButton!
+    
+    
     //create unwind segue
     @IBAction func unwindToChannelVC(segue: UIStoryboardSegue){}
 
@@ -17,6 +21,13 @@ class ChannelVC: UIViewController {
         super.viewDidLoad()
 
         self.revealViewController()?.rearViewRevealWidth = self.view.frame.width - 60
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.handleNotification), name: USER_DATA_CHANGED, object: nil)
+    }
+    
+    @objc func handleNotification(){
+        if AuthService.instance.isLoggedIn {
+            
+        }
     }
     
     @IBAction func loginBtn(_ sender: Any) {
