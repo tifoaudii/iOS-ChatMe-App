@@ -22,5 +22,10 @@ class ChatVC: UIViewController {
         //add gesture recognization for drag menu and tap for close menu
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
+        //check current user
+        AuthService.instance.findUserByEmail { (success) in
+            NotificationCenter.default.post(name: USER_DATA_CHANGED, object: nil)
+        }
     }
 }

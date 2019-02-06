@@ -17,6 +17,7 @@ let BASE_URL = "https://smackchat-server.herokuapp.com/v1/"
 let REGISTER_URL = "\(BASE_URL)account/register"
 let LOGIN_URL = "\(BASE_URL)account/login"
 let CREATE_USER_URL = "\(BASE_URL)user/add"
+let FIND_USER_BY_EMAIL = "\(BASE_URL)user/byEmail/"
 
 //seques
 let LOGIN_SEGUE = "login_segue"
@@ -33,6 +34,11 @@ let LOGGEDIN_KEY = "loggedIn_key"
 
 //Header Request
 let HEADER = [
+    "Content-Type": "application/json; charset=utf-8"
+]
+
+let BEARER_HEADER = [
+    "Authorization": "Bearer \(AuthService.instance.authToken)",
     "Content-Type": "application/json; charset=utf-8"
 ]
 

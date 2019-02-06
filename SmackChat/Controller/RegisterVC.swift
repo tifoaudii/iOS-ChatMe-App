@@ -47,6 +47,8 @@ class RegisterVC: UIViewController {
         let G = CGFloat(arc4random_uniform(255)) / 255
         let B = CGFloat(arc4random_uniform(255)) / 255
         
+        avatarColor = "[\(R),\(G),\(B),1]"
+        
         let bgColor = UIColor(red: R, green: G, blue: B, alpha: 1)
         UIView.animate(withDuration: 0.3) {
             self.userImage.backgroundColor = bgColor
@@ -89,9 +91,9 @@ class RegisterVC: UIViewController {
     private func setupCustomView(){
         usernameTextField.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)])
         
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)])
         
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)])
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)])
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(RegisterVC.handleTap))
         view.addGestureRecognizer(tap)
