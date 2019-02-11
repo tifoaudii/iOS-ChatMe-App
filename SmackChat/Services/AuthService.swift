@@ -71,18 +71,36 @@ class AuthService {
         ]
         
         Alamofire.request(LOGIN_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
-            do {
-                let data = response.data
-                let json = try JSON(data: data!)
-                self.userEmail = json["user"].stringValue
-                self.authToken = json["token"].stringValue
-                self.isLoggedIn = true
+            
+            if response.result.error == nil {
+                guard let data = response.data else { return }
                 
-                
+                do {
+                    let json = try JSON(data: data)
+                    self.userEmail = json["user"].stringValue
+                    self.authToken = json["token"].stringValue
+                    self.isLoggedIn = true
+                }catch let error as NSError {
+                    print("the error is here\( error)")
+                }
                 completion(true)
-            }catch let error as NSError {
-                print(error)
+            } else {
+                completion(false)
+                debugPrint("the errrrr is here \(response.result.error as Any)")
             }
+            
+//            do {
+//                let data = response.data
+//                let json = try JSON(data: data!)
+//                self.userEmail = json["user"].stringValue
+//                self.authToken = json["token"].stringValue
+//                self.isLoggedIn = true
+//
+//
+//                completion(true)
+//            }catch let error as NSError {
+//                print(error)
+//            }
         }
     }
     

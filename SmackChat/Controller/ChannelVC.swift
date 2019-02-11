@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ChannelVC: UIViewController {
+class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UIButton!
+    @IBOutlet weak var channelTableView: UITableView!
     
     
     //create unwind segue
@@ -19,13 +20,28 @@ class ChannelVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.revealViewController()?.rearViewRevealWidth = self.view.frame.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.handleNotification), name: USER_DATA_CHANGED, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.getChannels(_:)), name: CHANNELS_LOADED, object: nil)
+        
+        self.channelTableView.delegate = self
+        self.channelTableView.dataSource = self
+        
+        SocketService.instance.getChannel { (success) in
+            if success {
+                self.channelTableView.reloadData()
+            }
+        }
     }
-    
+   
     override func viewDidAppear(_ animated: Bool) {
         self.checkCurrentUser()
+        self.channelTableView.reloadData()
+    }
+    
+    @objc func getChannels(_ notif:Notification ) {
+        self.channelTableView.reloadData()
     }
     
     @objc func handleNotification(){
@@ -41,6 +57,7 @@ class ChannelVC: UIViewController {
             userName.setTitle("Login", for: .normal)
             userImage.image = UIImage(named: "profileDefault")
             userImage.backgroundColor = UIColor.lightGray
+            channelTableView.reloadData()
         }
     }
     
@@ -53,5 +70,36 @@ class ChannelVC: UIViewController {
             performSegue(withIdentifier: LOGIN_SEGUE, sender: nil)
         }
     }
+    @IBAction func addChannel(_ sender: Any) {
+        if AuthService.instance.isLoggedIn {
+            let addChannelModal = AddChannelVC()
+            addChannelModal.modalPresentationStyle = .custom
+            present(addChannelModal, animated: true, completion: nil)
+        }
+    }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ChatService.instance.channels.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: CHANNEL_CELL) as? ChannelCell {
+            let channelName = ChatService.instance.channels[indexPath.row].title
+            cell.setupViewCell(channelName: channelName!)
+            return cell
+        }else {
+            return ChannelCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let channel = ChatService.instance.channels[indexPath.row]
+        ChatService.instance.selectedChannel = channel
+        NotificationCenter.default.post(name: SELECTED_CHANNEL, object: nil)
+        self.revealViewController()?.revealToggle(animated: true)
+    }
 }

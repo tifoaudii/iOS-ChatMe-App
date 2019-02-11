@@ -18,6 +18,8 @@ let REGISTER_URL = "\(BASE_URL)account/register"
 let LOGIN_URL = "\(BASE_URL)account/login"
 let CREATE_USER_URL = "\(BASE_URL)user/add"
 let FIND_USER_BY_EMAIL = "\(BASE_URL)user/byEmail/"
+let FETCH_CHANNELS = "\(BASE_URL)/channel"
+let ADD_CHANNELS = "\(BASE_URL)/addChannel"
 
 //seques
 let LOGIN_SEGUE = "login_segue"
@@ -27,6 +29,9 @@ let AVATAR_PICKER_SEGUE = "avatarpicker_segue"
 
 //NOTIFICATION
 let USER_DATA_CHANGED = Notification.Name("user_data_changed")
+let CHANNELS_LOADED = Notification.Name("channels_loaded")
+let SELECTED_CHANNEL = Notification.Name("selected_channel")
+
 //Auth Services
 let USER_TOKEN = "user_token"
 let USER_EMAIL = "user_email"
@@ -50,3 +55,4 @@ enum AvatarType {
 
 //cell identifier
 let AVATAR_CELL = "avatar_cell"
+let CHANNEL_CELL = "channel_cell"

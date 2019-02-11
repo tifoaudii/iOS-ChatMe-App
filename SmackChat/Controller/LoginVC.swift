@@ -36,7 +36,11 @@ class LoginVC: UIViewController {
         guard let password = passwordTextField.text, passwordTextField.text != "" else { return }
         
         AuthService.instance.loginUser(email: email, password: password) { (success) in
-            self.getUserAccount()
+            if success {
+                self.getUserAccount()
+            }else {
+                self.loginBtn.loadingComplete(title: "login gagal")
+            }
         }
     }
     
@@ -53,8 +57,8 @@ class LoginVC: UIViewController {
     }
     
     private func setupView(){
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.02641031146, green: 0.1492313743, blue: 0.3145045042, alpha: 1)])
         
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)])
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.02641031146, green: 0.1492313743, blue: 0.3145045042, alpha: 1)])
     }
 }
