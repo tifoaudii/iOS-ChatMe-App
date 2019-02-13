@@ -20,6 +20,7 @@ let CREATE_USER_URL = "\(BASE_URL)user/add"
 let FIND_USER_BY_EMAIL = "\(BASE_URL)user/byEmail/"
 let FETCH_CHANNELS = "\(BASE_URL)/channel"
 let ADD_CHANNELS = "\(BASE_URL)/addChannel"
+let FETCH_MESSAGE = "\(BASE_URL)/message/byChannel/"
 
 //seques
 let LOGIN_SEGUE = "login_segue"
@@ -56,3 +57,4 @@ enum AvatarType {
 //cell identifier
 let AVATAR_CELL = "avatar_cell"
 let CHANNEL_CELL = "channel_cell"
+let MESSAGE_CELL = "message_cell"

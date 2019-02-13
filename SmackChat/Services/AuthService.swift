@@ -73,22 +73,42 @@ class AuthService {
         Alamofire.request(LOGIN_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
             
             if response.result.error == nil {
-                guard let data = response.data else { return }
-                
-                do {
-                    let json = try JSON(data: data)
-                    self.userEmail = json["user"].stringValue
-                    self.authToken = json["token"].stringValue
-                    self.isLoggedIn = true
-                }catch let error as NSError {
-                    print("the error is here\( error)")
+                if let json = response.result.value as? Dictionary<String, Any> {
+                    if let email = json["user"] as? String {
+                        self.userEmail = email
+                    }
+                    
+                    if let token = json["token"] as? String {
+                        self.authToken = token
+                    }
                 }
-                completion(true)
+                if self.userEmail != "" && self.authToken != "" {
+                    self.isLoggedIn = true
+                    completion(true)
+                }else {
+                    completion(false)
+                }
             } else {
                 completion(false)
-                debugPrint("the errrrr is here \(response.result.error as Any)")
             }
-            
+//            if response.result.error == nil {
+//                guard let data = response.data else { return }
+//
+//                do {
+//                    let json = try JSON(data: data)
+//                    self.userEmail = json["user"].stringValue
+//                    self.authToken = json["token"].stringValue
+//                    self.isLoggedIn = true
+//                }catch let error as NSError {
+//                    print("the error is here\( error)")
+//                    completion(false)
+//                }
+//                completion(true)
+//            } else {
+//                completion(false)
+//                debugPrint("the errrrr is here \(response.result.error as Any)")
+//            }
+//
 //            do {
 //                let data = response.data
 //                let json = try JSON(data: data!)

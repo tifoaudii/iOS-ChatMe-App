@@ -33,6 +33,13 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.channelTableView.reloadData()
             }
         }
+        
+        SocketService.instance.getChatMessage { (newMessage) in
+            if newMessage.channelID != ChatService.instance.selectedChannel?.id && AuthService.instance.isLoggedIn {
+                ChatService.instance.unreadChannels.append(newMessage.channelID)
+                self.channelTableView.reloadData()
+            }
+        }
     }
    
     override func viewDidAppear(_ animated: Bool) {
@@ -88,8 +95,8 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: CHANNEL_CELL) as? ChannelCell {
-            let channelName = ChatService.instance.channels[indexPath.row].title
-            cell.setupViewCell(channelName: channelName!)
+            let channelName = ChatService.instance.channels[indexPath.row]
+            cell.setupViewCell(channelName: channelName)
             return cell
         }else {
             return ChannelCell()
@@ -99,6 +106,16 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let channel = ChatService.instance.channels[indexPath.row]
         ChatService.instance.selectedChannel = channel
+        
+        if ChatService.instance.unreadChannels.count > 0 {
+            ChatService.instance.unreadChannels = ChatService.instance.unreadChannels.filter{ $0 != channel.id }
+        }
+        
+        //reload cell
+        let index = IndexPath(row: indexPath.row, section: 0)
+        channelTableView.reloadRows(at: [index], with: .none)
+        channelTableView.selectRow(at: index, animated: false, scrollPosition: .none)
+        
         NotificationCenter.default.post(name: SELECTED_CHANNEL, object: nil)
         self.revealViewController()?.revealToggle(animated: true)
     }

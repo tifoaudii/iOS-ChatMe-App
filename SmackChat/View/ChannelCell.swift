@@ -25,7 +25,14 @@ class ChannelCell: UITableViewCell {
         }
     }
     
-    func setupViewCell(channelName: String) {
-        self.channelName.text = "#\(channelName)"
+    func setupViewCell(channelName: Channel) {
+        self.channelName.text = "#\(channelName.title ?? "")"
+        self.channelName.font = UIFont(name: "HelveticaNeue-Regular", size: 17)
+        
+        for id in ChatService.instance.unreadChannels {
+            if id == channelName.id {
+                self.channelName.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+            }
+        }
     }
 }

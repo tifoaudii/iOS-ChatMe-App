@@ -13,6 +13,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginBtn: RoundedButton!
+    @IBOutlet weak var errorMessage: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class LoginVC: UIViewController {
     
     //close the login screen
     @IBAction func closeLogin(_ sender: Any) {
+        self.errorMessage.isHidden = true
         dismiss(animated: true, completion: nil)
     }
     
@@ -31,6 +33,7 @@ class LoginVC: UIViewController {
     
     @IBAction func login(_ sender: Any) {
        self.loginBtn.isLoading()
+        self.errorMessage.isHidden = true
         
         guard let email = emailTextField.text, emailTextField.text != "" else { return }
         guard let password = passwordTextField.text, passwordTextField.text != "" else { return }
@@ -39,7 +42,8 @@ class LoginVC: UIViewController {
             if success {
                 self.getUserAccount()
             }else {
-                self.loginBtn.loadingComplete(title: "login gagal")
+                self.errorMessage.isHidden = false
+                self.loginBtn.loadingComplete(title: "Login")
             }
         }
     }
@@ -60,5 +64,6 @@ class LoginVC: UIViewController {
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.02641031146, green: 0.1492313743, blue: 0.3145045042, alpha: 1)])
         
         emailTextField.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.02641031146, green: 0.1492313743, blue: 0.3145045042, alpha: 1)])
+        errorMessage.isHidden = true
     }
 }

@@ -46,4 +46,31 @@ class SocketService: NSObject {
         }
     }
     
+    func addNewMessage(messageBody: String, userId: String, channelId: String, completion: @escaping CompletionHandler) {
+        let user = UserService.instance
+        socket.emit("newMessage", messageBody, userId, channelId, user.name, user.avatarName, user.avatarColor)
+        completion(true)
+    }
+    
+    func getChatMessage(completion: @escaping (_ newMessage: Message) -> Void) {
+        socket.on("messageCreated") { (dataArray, ack) in
+            guard let messageBody = dataArray[0] as? String else { return }
+            guard let channelID = dataArray[2] as? String else { return }
+            guard let userName = dataArray[3] as? String else { return }
+            guard let userAvatar = dataArray[4] as? String else { return }
+            guard let userAvatarColor = dataArray[5] as? String else { return }
+            guard let id = dataArray[6] as? String else { return }
+            guard let timestamp = dataArray[7] as? String else { return }
+            
+            let newMessage = Message(message: messageBody, userName: userName, channelID: channelID, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timestamp)
+            completion(newMessage)
+        }
+    }
+    
+    func listenUserTyping(_ completion: @escaping (_ typingUser: [String:String]) -> Void) {
+        socket.on("userTypingUpdate") { (dataArray, ack) in
+            guard let typingUser = dataArray[0] as? [String:String] else { return }
+            completion(typingUser)
+        }
+    }
 }
